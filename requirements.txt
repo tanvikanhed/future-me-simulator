@@ -1,14 +1,2 @@
-Future-Me-Simulator/
-│
-├── app.py
-├── requirements.txt
-├── Procfile
-├── README.md
-├── .gitignore
-│
-├── templates/
-│   └── index.html
-│
-└── static/
-    ├── style.css
-    └── script.js
+Flask==3.1.3
+gunicorn
