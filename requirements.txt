@@ -1,7 +1,8 @@
 Future-Me-Simulator/
 │
 ├── app.py
-├──requirements.txt
+├── requirements.txt
+├── Procfile
 ├── README.md
 ├── .gitignore
 │
