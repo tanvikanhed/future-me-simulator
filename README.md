@@ -54,3 +54,5 @@ Results are returned to JavaScript
 Chart.js visualizes future progress
         ↓
 Personalized insights are displayed
+
+Project Deployment Link: https://future-me-simulator.onrender.com
