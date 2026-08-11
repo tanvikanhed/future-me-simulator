@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Future Me Simulator</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+</head>
+
+
+<body>
+
+    <!-- Header -->
+    <header class="hero">
+        <div class="hero-content">
+            <p class="tagline">PERSONAL GROWTH SIMULATOR</p>
+
+            <h1>🔮 Future Me Simulator</h1>
+
+            <p class="hero-description">
+                Explore how your current habits could shape your future
+                and compare different paths you could take.
+            </p>
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Habit Input Section -->
+        <section class="card input-section">
+
+            <div class="section-heading">
+                <span class="section-number">01</span>
+
+                <div>
+                    <h2>Your Current Habits</h2>
+                    <p>Tell us about your typical day.</p>
+                </div>
+            </div>
+
+
+            <div class="input-grid">
+
+                <!-- Study -->
+                <div class="input-group">
+                    <label for="study">
+                        📚 Daily Study
+                        <span>hours</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="study"
+                        min="0"
+                        max="24"
+                        step="0.5"
+                        placeholder="e.g. 3"
+                    >
+                </div>
+
+
+                <!-- Sleep -->
+                <div class="input-group">
+                    <label for="sleep">
+                        😴 Daily Sleep
+                        <span>hours</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="sleep"
+                        min="0"
+                        max="24"
+                        step="0.5"
+                        placeholder="e.g. 7"
+                    >
+                </div>
+
+
+                <!-- Exercise -->
+                <div class="input-group">
+                    <label for="exercise">
+                        🏃 Exercise
+                        <span>minutes/day</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="exercise"
+                        min="0"
+                        max="300"
+                        step="5"
+                        placeholder="e.g. 30"
+                    >
+                </div>
+
+
+                <!-- Screen Time -->
+                <div class="input-group">
+                    <label for="screen">
+                        📱 Screen Time
+                        <span>hours/day</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="screen"
+                        min="0"
+                        max="24"
+                        step="0.5"
+                        placeholder="e.g. 5"
+                    >
+                </div>
+
+
+                <!-- Consistency -->
+                <div class="input-group">
+                    <label for="consistency">
+                        🎯 Consistency
+                        <span>percentage</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="consistency"
+                        min="0"
+                        max="100"
+                        step="1"
+                        placeholder="e.g. 60"
+                    >
+                </div>
+
+            </div>
+
+
+            <button id="simulateBtn" type="button">
+                Simulate My Future
+                <span>→</span>
+            </button>
+            <button id="resetBtn" type="button" class="reset-btn">
+             Reset
+            </button>
+           
+
+        </section>
+
+
+        <!-- Results Section -->
+        <section class="results-section" id="results">
+
+            <div class="section-heading">
+                <span class="section-number">02</span>
+
+                <div>
+                    <h2>Your Future Projection</h2>
+                    <p>Compare three possible paths based on your habits.</p>
+                </div>
+            </div>
+
+
+            <!-- Scenario Cards -->
+            <div class="scenario-container">
+
+                <!-- Current -->
+                <div class="scenario current">
+
+                    <div class="scenario-icon">🔴</div>
+
+                    <div>
+                        <h3>Current Me</h3>
+
+                        <p>
+                            Continue your current habits.
+                        </p>
+                    </div>
+
+                    <strong id="currentScore">--%</strong>
+
+                </div>
+
+
+                <!-- Better -->
+                <div class="scenario better">
+
+                    <div class="scenario-icon">🟡</div>
+
+                    <div>
+                        <h3>Better Me</h3>
+
+                        <p>
+                            Make moderate improvements.
+                        </p>
+                    </div>
+
+                    <strong id="betterScore">--%</strong>
+
+                </div>
+
+
+                <!-- Ideal -->
+                <div class="scenario ideal">
+
+                    <div class="scenario-icon">🟢</div>
+
+                    <div>
+                        <h3>Ideal Me</h3>
+
+                        <p>
+                            Follow a highly consistent routine.
+                        </p>
+                    </div>
+
+                    <strong id="idealScore">--%</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Chart -->
+            <div class="card chart-card">
+
+                <div class="chart-heading">
+                    <h3>📈 Your Possible Progress</h3>
+
+                    <p>
+                        A simulation of how your progress could change
+                        over time.
+                    </p>
+                </div>
+
+                <div class="chart-wrapper">
+                    <canvas id="futureChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- Insight -->
+            <div class="insight-card" id="insight">
+
+                <div class="insight-icon">💡</div>
+
+                <div>
+                    <h3>Your Personalized Insight</h3>
+
+                    <p id="insightText">
+                        Enter your habits above and click
+                        <strong>Simulate My Future</strong> to see your projection.
+                    </p>
+                </div>
+
+            </div>
+<!-- What If Section -->
+<section class="card what-if-section">
+
+    <div class="section-heading">
+        <span class="section-number">03</span>
+
+        <div>
+            <h2>🔮 What If I Change My Habits?</h2>
+            <p>Explore how a small change could affect your future.</p>
+        </div>
+    </div>
+
+    <div class="what-if-grid">
+
+        <div class="what-if-input">
+
+            <label for="whatIfHabit">
+                Choose a habit
+            </label>
+
+            <select id="whatIfHabit">
+                <option value="study">📚 Study Hours</option>
+                <option value="sleep">😴 Sleep Hours</option>
+                <option value="exercise">🏃 Exercise Minutes</option>
+                <option value="screen">📱 Screen Time</option>
+                <option value="consistency">🎯 Consistency</option>
+            </select>
+
+        </div>
+
+
+        <div class="what-if-input">
+
+            <label for="whatIfValue">
+                New value
+            </label>
+
+            <input
+                type="number"
+                id="whatIfValue"
+                placeholder="Enter new value"
+            >
+
+        </div>
+
+    </div>
+
+    <button id="whatIfBtn" type="button">
+        See My Possible Future →
+    </button>
+
+
+    <div class="what-if-result" id="whatIfResult">
+
+        <div class="comparison-box">
+
+            <span>Current Score</span>
+
+            <strong id="whatIfCurrent">
+                --%
+            </strong>
+
+        </div>
+
+
+        <div class="comparison-arrow">
+            →
+        </div>
+
+
+        <div class="comparison-box improved">
+
+            <span>With This Change</span>
+
+            <strong id="whatIfImproved">
+                --%
+            </strong>
+
+        </div>
+
+
+        <div class="improvement-message">
+
+            <span>Potential improvement</span>
+
+            <strong id="improvementValue">
+                --
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+        </section>
+
+    </main>
+
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static',filename='script.js')}}"></script>
+
+</body>
+</html>
+
