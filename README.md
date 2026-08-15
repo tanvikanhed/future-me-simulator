@@ -1,6 +1,6 @@
 #  Future Me Simulator
 
-A web-based habit simulation application that helps users understand how their current daily habits may influence their future progress.
+Future Me Simulator is a web application that uses a rule-based scoring system to simulate possible future outcomes based on a user's current habits and goals.
 
 ##  Problem Statement
 
@@ -21,21 +21,22 @@ The **Future Me Simulator** analyzes a user's current habits and generates simul
 
 ##  Technology Stack
 
-### Frontend
-- HTML5
-- CSS3
+### Frontend:
+- HTML
+- CSS
 - JavaScript
 - Chart.js
 
-### Backend
+## Backend:
 - Python
 - Flask
 
-### Deployment & Tools
+## Deployment:
+- Render
+
+## Version Control:
 - Git
 - GitHub
-- Render
-- VS Code
 
 ##  How It Works
 
@@ -55,4 +56,6 @@ Chart.js visualizes future progress
         ↓
 Personalized insights are displayed
 
-Project Deployment Link: https://future-me-simulator.onrender.com
+
+## Project Deployment Link:
+https://future-me-simulator.onrender.com
